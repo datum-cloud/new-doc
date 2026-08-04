@@ -30,7 +30,7 @@ mintlify dev
 ├── kubernetes.mdx      # Kubernetes-native approach
 ├── get-involved.mdx    # Community and contributing
 ├── platform/           # Platform setup, secrets, metrics, locations
-├── ai-edge/            # AI Edge proxy docs
+├── alb/            # Application Load Balancer proxy docs
 ├── connectors/         # Connectors and tunnels
 ├── galactic-vpc/       # Galactic VPC docs
 ├── domain-dns/         # Domains and DNS

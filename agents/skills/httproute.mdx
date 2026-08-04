@@ -3,7 +3,7 @@ title: "HTTPRoute skill"
 description: "Teach agents to configure HTTP routing rules — path matching, traffic splitting, redirects, rewrites, and header manipulation on Datum Cloud."
 ---
 
-The HTTPRoute skill helps agents configure HTTP routing rules in Datum Cloud. It covers [AI Edge](/ai-edge/overview) route definitions — matching requests by path, headers, method, and query parameters, then forwarding, splitting, redirecting, rewriting, or mirroring traffic using `HTTPRoute` resources attached to a Gateway.
+The HTTPRoute skill helps agents configure HTTP routing rules in Datum Cloud. It covers [Application Load Balancer](/alb/overview) route definitions — matching requests by path, headers, method, and query parameters, then forwarding, splitting, redirecting, rewriting, or mirroring traffic using `HTTPRoute` resources attached to a Gateway.
 
 ## Install
 
@@ -45,7 +45,7 @@ Once installed, the skill activates automatically when you ask an agent to confi
 
 ## How it relates to other Datum surfaces
 
-- **Product docs:** [AI Edge](/ai-edge/overview) — the human-facing reference for gateways and routing
+- **Product docs:** [Application Load Balancer](/alb/overview) — the human-facing reference for gateways and routing
 - **Datum MCP:** [Datum MCP](/datum-mcp) — for agents that need live read/write access to HTTPRoute resources during a session
 - **`datumctl`:** [datumctl overview](/datumctl/overview) — `get`, `describe`, `apply`, `diff`, `delete` commands the skill teaches agents to use
 

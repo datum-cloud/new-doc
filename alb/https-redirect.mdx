@@ -6,14 +6,14 @@ description: "Force HTTPS by redirecting all plain HTTP requests using a Request
 This guide shows how to configure an explicit HTTP to HTTPS redirect on a Datum `HTTPProxy` using a `RequestRedirect` filter.
 
 <Note>
-AI Edge enforces HTTPS by default. This guide applies when you have disabled that enforcement, or when you need a custom redirect configuration — for example, redirecting from a specific path or returning a `302` instead of the default `301`.
+Application Load Balancer enforces HTTPS by default. This guide applies when you have disabled that enforcement, or when you need a custom redirect configuration — for example, redirecting from a specific path or returning a `302` instead of the default `301`.
 </Note>
 
 ---
 
 ## Overview
 
-A `RequestRedirect` filter responds to the client with a redirect response directly — no backend is reached. The AI Edge handles the redirect at the proxy layer.
+A `RequestRedirect` filter responds to the client with a redirect response directly — no backend is reached. The Application Load Balancer handles the redirect at the proxy layer.
 
 At a high level, this setup:
 

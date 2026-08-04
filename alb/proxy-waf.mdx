@@ -1,12 +1,14 @@
 ---
 title: "HTTPProxy and WAF Capabilities"
-description: "Reference overview of the HTTPProxy and TrafficProtectionPolicy resources that make up Datum's AI Edge."
+description: "Reference overview of the HTTPProxy and TrafficProtectionPolicy resources that make up Datum's Application Load Balancer."
 ---
 
-Datum's AI Edge consists of two resources that work together:
+Datum's Application Load Balancer consists of two primary resources that work together (plus operator-provisioned Gateway, DNS, and TLS):
 
 - **`HTTPProxy`** — Layer 7 routing and traffic control
 - **`TrafficProtectionPolicy`** — OWASP Core Rule Set WAF protection
+
+Together with the Gateway the network-services operator creates from the HTTPProxy (same name), these are what make up an ALB today. Optional basic auth adds a `SecurityPolicy` and Secret. See the [overview](/alb/overview#what-an-alb-is-made-of) for the full composition diagram.
 
 The proxy determines where traffic goes and how requests are shaped before reaching your origin. The WAF determines whether traffic is observed or blocked based on security rules. The WAF attaches to a proxy using `targetRefs`.
 
@@ -142,7 +144,7 @@ TrafficProtectionPolicy
 
 ## Next Steps
 
-- [Path-Based Routing](/ai-edge/path-routing) — Route requests to different backends by URL path
-- [HTTP Basic Authentication](/ai-edge/basic-auth) — Add username/password protection to a route
-- [OIDC with Google](/ai-edge/oidc-google) — Protect a route with Google sign-in
-- [OIDC with Auth0](/ai-edge/oidc-auth0) — OIDC with email-based allow-lists via Auth0
+- [Path-Based Routing](/alb/path-routing) — Route requests to different backends by URL path
+- [HTTP Basic Authentication](/alb/basic-auth) — Add username/password protection to a route
+- [OIDC with Google](/alb/oidc-google) — Protect a route with Google sign-in
+- [OIDC with Auth0](/alb/oidc-auth0) — OIDC with email-based allow-lists via Auth0
