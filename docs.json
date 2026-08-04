@@ -118,7 +118,7 @@
                 "group": "Skills",
                 "pages": [
                   "agents/skills/index",
-                  "agents/skills/ai-edge",
+                  "agents/skills/alb",
                   "agents/skills/client-traffic",
                   "agents/skills/dns",
                   "agents/skills/domains",
