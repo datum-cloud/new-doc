@@ -3,7 +3,7 @@ title: "Client Traffic skill"
 description: "Teach agents to configure TLS termination, HTTP/3, connection limits, and client IP detection on Datum Cloud gateways."
 ---
 
-The Client Traffic skill helps agents manage how Datum Cloud edge gateways accept and handle incoming client connections. It covers [AI Edge](/ai-edge/overview) gateway-level settings — TLS termination, mutual TLS (mTLS), HTTP/2 and HTTP/3 (QUIC), connection timeouts and limits, and real client IP detection — all configured by attaching a `ClientTrafficPolicy` to a Gateway listener.
+The Client Traffic skill helps agents manage how Datum Cloud edge gateways accept and handle incoming client connections. It covers [Application Load Balancer](/alb/overview) gateway-level settings — TLS termination, mutual TLS (mTLS), HTTP/2 and HTTP/3 (QUIC), connection timeouts and limits, and real client IP detection — all configured by attaching a `ClientTrafficPolicy` to a Gateway listener.
 
 ## Install
 
@@ -45,7 +45,7 @@ Once installed, the skill activates automatically when you ask an agent to confi
 
 ## How it relates to other Datum surfaces
 
-- **Product docs:** [AI Edge](/ai-edge/overview) — the human-facing reference for gateways and edge policies
+- **Product docs:** [Application Load Balancer](/alb/overview) — the human-facing reference for gateways and edge policies
 - **Datum MCP:** [Datum MCP](/datum-mcp) — for agents that need live read/write access to gateway resources during a session
 - **`datumctl`:** [datumctl overview](/datumctl/overview) — `get`, `describe`, `apply`, `diff`, `delete` commands the skill teaches agents to use
 

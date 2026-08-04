@@ -78,15 +78,15 @@
             ]
           },
           {
-            "group": "AI Edge",
+            "group": "ALB",
             "pages": [
-              "ai-edge/overview",
+              "alb/overview",
               {
                 "group": "Guides",
                 "pages": [
-                  "ai-edge/guides/basic-auth",
-                  "ai-edge/guides/oidc-google",
-                  "ai-edge/guides/oidc-auth0"
+                  "alb/guides/basic-auth",
+                  "alb/guides/oidc-google",
+                  "alb/guides/oidc-auth0"
                 ]
               }
             ]
@@ -118,7 +118,7 @@
                 "group": "Skills",
                 "pages": [
                   "agents/skills/index",
-                  "agents/skills/ai-edge",
+                  "agents/skills/alb",
                   "agents/skills/client-traffic",
                   "agents/skills/dns",
                   "agents/skills/domains",
@@ -304,5 +304,15 @@
       "autogenerate": false,
       "prefill": false
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/ai-edge",
+      "destination": "/alb/overview"
+    },
+    {
+      "source": "/ai-edge/:slug*",
+      "destination": "/alb/:slug*"
+    }
+  ]
 }

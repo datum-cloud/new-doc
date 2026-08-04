@@ -1,9 +1,9 @@
 ---
-title: "DNS Setup for AI Edge"
-description: "Create a DNS zone, apex ALIAS record, and subdomain CNAME to point a domain at a Datum AI Edge endpoint."
+title: "DNS Setup for Application Load Balancer"
+description: "Create a DNS zone, apex ALIAS record, and subdomain CNAME to point a domain at a Datum Application Load Balancer endpoint."
 ---
 
-This guide prepares a domain for use with a Datum AI Edge by creating a DNS zone, an apex ALIAS record, and a subdomain CNAME — all pointing at the AI Edge endpoint.
+This guide prepares a domain for use with a Datum Application Load Balancer by creating a DNS zone, an apex ALIAS record, and a subdomain CNAME — all pointing at the Application Load Balancer endpoint.
 
 <Note>
 This guide assumes your domain is already delegated to Datum nameservers. See [DNS](/domain-dns/dns) for nameserver details and ALIAS record behavior.
@@ -23,7 +23,7 @@ This guide assumes your domain is already delegated to Datum nameservers. See [D
 
 ### Step 1: Set Variables
 
-The `TARGET` value is your AI Edge endpoint hostname. Find it in the Datum portal under your AI Edge's generated hostname, or via:
+The `TARGET` value is your Application Load Balancer endpoint hostname. Find it in the Datum portal under your Application Load Balancer's generated hostname, or via:
 
 ```bash
 datumctl get httpproxy <name> --namespace default -o yaml
@@ -103,7 +103,7 @@ Wait until both `ACCEPTED` and `PROGRAMMED` show `True` before proceeding.
 
 ### Step 3: Create the Apex ALIAS Record
 
-Points the root domain (`@`) at the AI Edge endpoint.
+Points the root domain (`@`) at the Application Load Balancer endpoint.
 
 #### Windows (PowerShell)
 
@@ -225,7 +225,7 @@ dig $DOMAIN
 dig app.$DOMAIN
 ```
 
-Both names should resolve to the AI Edge endpoint.
+Both names should resolve to the Application Load Balancer endpoint.
 
 ---
 
