@@ -1,0 +1,65 @@
+---
+title: "Project Suspension"
+description: "What happens when a project is suspended, what is paused versus retained, and how to appeal or self-remediate"
+---
+
+Project suspension is a reversible, non-destructive pause on a project. Datum can suspend a project for policy, billing, security, or compliance reasons. Nothing about your project is deleted — running work is paused, and everything is retained so the project can resume exactly where it left off.
+
+## What happens when a project is suspended
+
+When a project is suspended:
+
+- **The project freezes.** You can read your project and its resources, but you can no longer create new resources or change existing configuration.
+- **Everything running stops — but nothing is deleted.** Compute instances are paused, published endpoints stop serving, and the project stops executing work.
+- **Your data is preserved.** Disks, configuration, IP allocations, DNS records, and enabled-service state all remain in place.
+
+Think of suspension as a freeze, not a deletion. The essential guarantee is **reversibility** — at no point is your state destroyed.
+
+## What's paused vs. retained
+
+| Resource | Behavior |
+| --- | --- |
+| Compute instances | Paused (state preserved) |
+| Published endpoints | Stop serving |
+| DNS records | Retained |
+| Configuration | Retained |
+| IP allocations | Retained |
+| Disks and data | Retained |
+| Enabled-service state | Retained |
+
+## What to expect on reinstatement
+
+When a suspended project is reinstated:
+
+- The project **unfreezes** and accepts writes again.
+- Everything **resumes from where it left off** — instances restart from their preserved state and endpoints serve again.
+- The full history of when and why the project was suspended and reinstated is retained for audit and appeal.
+
+Resuming can take a short time as paused work comes back online.
+
+## How to appeal or resolve a suspension
+
+How a suspension is lifted depends on the reason it was set.
+
+| Reason | How to resolve |
+| --- | --- |
+| **Billing** | Self-remediate — resolve the outstanding payment issue and the project is reinstated automatically. |
+| **Fraud, abuse, or compliance** | Appeal — Datum reviews the suspension before it can be lifted. |
+
+**[image here]** — screenshot of the suspension banner in the app
+
+If your project's suspension is set for a billing reason, resolve the payment to reinstate it automatically.
+
+If it's set for fraud, abuse, or compliance, you can submit an appeal for review. Datum reviews appeals for these types of suspensions before lifting them.
+
+## Compute instances
+
+Compute instances in a suspended project are paused with their state preserved, so they resume from where they left off on reinstatement.
+
+> **Note:** Instance pause and resume is rolling out. On projects where this capability is not yet available, instances are stopped rather than paused, and resume from preserved state may not be supported yet.
+
+**[image here]** — screenshot of a suspended compute project
+
+## Retention and escalation
+
+A project left suspended beyond the defined retention window can escalate to a normal, reversible, time-boxed deletion. This bounds resource hoarding while keeping suspension itself non-destructive. You'll be notified before any escalation.
