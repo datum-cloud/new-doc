@@ -1,25 +1,26 @@
 ---
 title: "Project Suspension"
-description: "What happens when a project is suspended, what is paused versus retained, and how to appeal or self-remediate"
+description: "What happens when a project is suspended, what is stopped versus retained, and how to appeal or self-remediate"
 ---
 
-Project suspension is a reversible, non-destructive pause on a project. Datum can suspend a project for policy, billing, security, or compliance reasons. Nothing about your project is deleted — running work is paused, and everything is retained so the project can resume exactly where it left off.
+Project suspension is a reversible, non-destructive stop on a project. Datum can suspend a project for policy, billing, security, or compliance reasons. Nothing about your project is deleted — running work is stopped, and your disks, configuration, and allocations are retained so the project can start back up on reinstatement.
 
 ## What happens when a project is suspended
 
 When a project is suspended:
 
-- **The project freezes.** You can read your project and its resources, but you can no longer create new resources or change existing configuration.
-- **Everything running stops — but nothing is deleted.** Compute instances are paused, published endpoints stop serving, and the project stops executing work.
+- **The project freezes.** You can read your project and its resources, but you can no longer create new resources or change existing configuration. Deleting resources is still allowed, so you can clean up or offboard while suspended.
+- **Everything running stops — but nothing is deleted by Datum.** Compute instances are stopped, published endpoints stop serving, open connections drop, and the project stops executing work.
 - **Your data is preserved.** Disks, configuration, IP allocations, DNS records, and enabled-service state all remain in place.
 
-Think of suspension as a freeze, not a deletion. The essential guarantee is **reversibility** — at no point is your state destroyed.
+Think of suspension as a stop, not a deletion. The essential guarantee is **reversibility** — Datum never destroys your stored state to suspend a project.
 
-## What's paused vs. retained
+## What's stopped vs. retained
 
 | Resource | Behavior |
 | --- | --- |
-| Compute instances | Paused (state preserved) |
+| Compute instances | Stopped, then restarted fresh |
+| In-memory state and open connections | Not preserved |
 | Published endpoints | Stop serving |
 | DNS records | Retained |
 | Configuration | Retained |
@@ -32,10 +33,10 @@ Think of suspension as a freeze, not a deletion. The essential guarantee is **re
 When a suspended project is reinstated:
 
 - The project **unfreezes** and accepts writes again.
-- Everything **resumes from where it left off** — instances restart from their preserved state and endpoints serve again.
+- Everything **starts back up automatically** — instances boot fresh from their preserved disks and endpoints serve again. No redeploy is required.
 - The full history of when and why the project was suspended and reinstated is retained for audit and appeal.
 
-Resuming can take a short time as paused work comes back online.
+Coming back up takes about as long as a normal start. Instances restart fresh rather than picking up mid-computation, so any in-memory state and open connections from before the suspension are gone.
 
 ## How to appeal or resolve a suspension
 
@@ -54,12 +55,8 @@ If it's set for fraud, abuse, or compliance, you can submit an appeal for review
 
 ## Compute instances
 
-Compute instances in a suspended project are paused with their state preserved, so they resume from where they left off on reinstatement.
+Compute instances in a suspended project are **stopped, not hibernated**. Their placement, disk attachments, and quota allocation are retained, so on reinstatement they boot fresh from their preserved disks with no redeploy.
 
-> **Note:** Instance pause and resume is rolling out. On projects where this capability is not yet available, instances are stopped rather than paused, and resume from preserved state may not be supported yet.
+In-memory state and open network connections do not survive a suspension. Design anything you run on Datum to tolerate a restart.
 
 **[image here]** — screenshot of a suspended compute project
-
-## Retention and escalation
-
-A project left suspended beyond the defined retention window can escalate to a normal, reversible, time-boxed deletion. This bounds resource hoarding while keeping suspension itself non-destructive. You'll be notified before any escalation.
