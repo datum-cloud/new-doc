@@ -73,6 +73,7 @@
               "platform/service-accounts",
               "platform/metrics-export",
               "platform/activity-logs",
+              "platform/project-suspension",
               "platform/secrets",
               "platform/locations"
             ]
