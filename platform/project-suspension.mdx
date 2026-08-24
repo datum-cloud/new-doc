@@ -3,17 +3,17 @@ title: "Project Suspension"
 description: "What happens when a project is suspended, what is stopped versus retained, and how to appeal or self-remediate"
 ---
 
-Project suspension is a reversible, non-destructive stop on a project. Datum can suspend a project for policy, billing, security, or compliance reasons. Nothing about your project is deleted — running work is stopped, and your disks, configuration, and allocations are retained so the project can start back up on reinstatement.
+Project suspension is a reversible, non-destructive stop on a project. Datum can suspend a project for policy, billing, security, or compliance reasons. Nothing about your project is deleted. Running work is stopped, and your disks, configuration, and allocations are retained so the project can start back up on reinstatement.
 
 ## What happens when a project is suspended
 
 When a project is suspended:
 
 - **The project freezes.** You can read your project and its resources, but you can no longer create new resources or change existing configuration. Deleting resources is still allowed, so you can clean up or offboard while suspended.
-- **Everything running stops — but nothing is deleted by Datum.** Compute instances are stopped, published endpoints stop serving, open connections drop, and the project stops executing work.
+- **Everything running stops, but nothing is deleted by Datum.** Compute instances are stopped, published endpoints stop serving, open connections drop, and the project stops executing work.
 - **Your data is preserved.** Disks, configuration, IP allocations, DNS records, and enabled-service state all remain in place.
 
-Think of suspension as a stop, not a deletion. The essential guarantee is **reversibility** — Datum never destroys your stored state to suspend a project.
+Think of suspension as a stop, not a deletion. The essential guarantee is **reversibility**. Datum never destroys your stored state to suspend a project.
 
 ## What's stopped vs. retained
 
@@ -33,7 +33,7 @@ Think of suspension as a stop, not a deletion. The essential guarantee is **reve
 When a suspended project is reinstated:
 
 - The project **unfreezes** and accepts writes again.
-- Everything **starts back up automatically** — instances boot fresh from their preserved disks and endpoints serve again. No redeploy is required.
+- Everything **starts back up automatically**. Instances boot fresh from their preserved disks and endpoints serve again. No redeploy is required.
 - The full history of when and why the project was suspended and reinstated is retained for audit and appeal.
 
 Coming back up takes about as long as a normal start. Instances restart fresh rather than picking up mid-computation, so any in-memory state and open connections from before the suspension are gone.
@@ -44,8 +44,8 @@ How a suspension is lifted depends on the reason it was set.
 
 | Reason | How to resolve |
 | --- | --- |
-| **Billing** | Self-remediate — resolve the outstanding payment issue and the project is reinstated automatically. |
-| **Fraud, abuse, or compliance** | Appeal — Datum reviews the suspension before it can be lifted. |
+| **Billing** | Self-remediate. Resolve the outstanding payment issue and the project is reinstated automatically. |
+| **Fraud, abuse, or compliance** | Appeal. Datum reviews the suspension before it can be lifted. |
 
 If your project's suspension is set for a billing reason, resolve the payment to reinstate it automatically.
 
