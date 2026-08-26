@@ -107,8 +107,13 @@
           {
             "group": "Domains & DNS",
             "pages": [
+              "domain-dns/dns",
               "domain-dns/domains",
-              "domain-dns/dns"
+              "domain-dns/domain-verification",
+              "domain-dns/dns-zones",
+              "domain-dns/dns-records",
+              "domain-dns/alias-records",
+              "domain-dns/migrate-dns"
             ]
           },
           {
@@ -178,6 +183,7 @@
             "group": "Plugins",
             "pages": [
               "datumctl/plugins/using-plugins",
+              "datumctl/plugins/dns",
               "datumctl/plugins/adding-catalogs",
               "datumctl/plugins/publishing-catalogs",
               "datumctl/plugins/building-plugins"
