@@ -180,10 +180,15 @@
             ]
           },
           {
-            "group": "Plugins",
+            "group": "Available plugins",
+            "pages": [
+              "datumctl/plugins/dns"
+            ]
+          },
+          {
+            "group": "Managing plugins",
             "pages": [
               "datumctl/plugins/using-plugins",
-              "datumctl/plugins/dns",
               "datumctl/plugins/adding-catalogs",
               "datumctl/plugins/publishing-catalogs",
               "datumctl/plugins/building-plugins"
