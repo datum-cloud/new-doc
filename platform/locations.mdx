@@ -1,6 +1,6 @@
 ---
 title: "Locations"
-description: "Datum is available in 17+ global locations, organized into points of presence (PoPs), packaged into Regions and Availability Zones (AZs)"
+description: "Datum's global footprint of Regions and Availability Zones, and how to check which locations are available to use in your project"
 ---
 
 Datum’s infrastructure footprint is organized into points of presence (PoPs) that are packaged into Regions and Availability Zones (AZs). See our [Locations](https://www.datum.net/locations/) for a visual overview of all PoPs.
@@ -52,6 +52,47 @@ _Note: regulatory and export control requirements may restrict or define where d
 | us-east-2 | New York City |
 | us-west-1 | San Jose, California |
 | za-central-1 | Johannesburg |
+
+## Check what's available to your project
+
+The table above is Datum's global footprint. What you can deploy into is a narrower, per-project question: Datum represents each usable location as a `Location` resource, and the ones inside your project's own control plane are the ones offered to you.
+
+`datumctl get locations` lists them:
+
+```bash
+datumctl get locations --project <project-id>
+```
+
+```text
+NAME           CLASS           CITY   AGE   READY   REASON
+us-central-1   datum-managed   DFW    20h
+us-east-1      datum-managed   IAD    20h
+```
+
+Each row is a location you can place work in today. `NAME` is the identifier you reference elsewhere, and matches the region codes in the table above: `us-central-1` is Dallas, `us-east-1` is Ashburn. `CITY` is the airport-style code for the metro it serves. `CLASS` is the kind of capacity behind it, where `datum-managed` is Datum's own footprint.
+
+<Tip>
+  This list reflects your active project scope. If a location you expect is missing, confirm you are pointed at the right project. See [Contexts & scoping](/datumctl/contexts-and-scoping).
+</Tip>
+
+For the full definition of a location, including its topology, request YAML or JSON:
+
+```bash
+datumctl get location us-central-1 --project <project-id> -o yaml
+```
+
+```yaml
+apiVersion: locations.miloapis.com/v1alpha1
+kind: Location
+metadata:
+  name: us-central-1
+spec:
+  locationClassRef:
+    name: datum-managed
+  topology:
+    topology.datum.net/city-code: DFW
+    topology.datum.net/region: us-central-1
+```
 
 ## Region tracing
 
