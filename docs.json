@@ -130,9 +130,15 @@
               "datum-mcp",
               "agents/llms-txt"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Desktop Apps",
+        "icon": "laptop",
+        "groups": [
           {
-            "group": "Tools",
+            "group": "Getting started",
             "pages": [
               "desktop-apps"
             ]
